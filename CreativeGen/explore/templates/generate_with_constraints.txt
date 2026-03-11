@@ -1,0 +1,41 @@
+## The Challenge
+This benchmark evaluates your ability to demonstrate exploratory creativity - finding novel, unconventional solutions when standard approaches are blocked. True creativity emerges when constraints force you to explore uncharted solution spaces.
+
+## Problem to Solve
+<<<PROBLEM_DESCRIPTION>>>
+
+## Required Function Signature
+Your solution MUST use this exact function signature:
+<<<FUNCTION_SIGNATURE>>>
+
+## Progressive Constraints
+You must solve this problem while adhering to ALL of the following constraints:
+<<<CONSTRAINTS_LIST>>>
+
+## Previous Attempts Feedback (if any)
+<<<FEEDBACK_HISTORY>>>
+
+## Your Mission
+1. **Think Creatively**: These constraints are designed to block common solutions. Embrace this as an opportunity to discover novel approaches.
+
+2. **Explore Alternatives**: Consider unconventional techniques, mathematical properties, language features, or algorithmic tricks you might not normally use.
+
+3. **Maintain Correctness**: Your solution must still solve the problem correctly despite the constraints.
+
+## Requirements
+- Language: <<<LANGUAGE>>>
+- Your solution must pass all test cases
+- **CRITICAL**: Use the EXACT same function name from the original problem description
+- **CRITICAL**: Maintain the exact same function signatures, class structure, and return types as the original problem
+- **CRITICAL**: Include ALL required functions and methods - do not omit any
+- Show your creativity by finding an elegant alternative approach within these interface constraints
+
+## Output Format
+Provide your solution in a single code block:
+
+```<<<LANGUAGE>>>
+// Your creative solution here
+```
+
+After the code, briefly explain your creative approach:
+**Approach**: [1-2 sentences describing your alternative strategy]

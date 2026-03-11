@@ -1,0 +1,204 @@
+You are an expert programmer tasked with creating a Python code benchmark. Your mission is to creatively fuse two distinct code solutions from different programming domains to solve a new, more complex, and integrated problem. The final output must be a self-contained, verifiable, and challenging Python program that adheres to strict sandbox environment constraints. Here are the code solutions you need to process: 
+
+=== Code Solution 1 (Domain: <<<domain1>>>) === 
+<<<code1>>> 
+
+=== Code Solution 2 (Domain: <<<domain2>>>) === 
+<<<code2>>> 
+
+1. Core Task: Creative Fusion for a New Problem  
+Your primary goal is to define and solve a new, more complex problem that requires an organic integration of the core logic from BOTH provided code solutions. You will produce a set of self-contained Python functions that solve this new problem, along with two dedicated testing functions (demo_testing() and full_testing()) to verify the solution.  
+
+### Creative Fusion Requirements  
+
+Your solution must demonstrate true creative fusion, not just mechanical combination. Adhere to the following principles:  
+
+#### A. Define and Justify the New Problem  
+At the very top of your first Python code block, you must include comments that:  
+- **New Integrated Problem:** Clearly describe the new problem your combined solution solves in 1-2 sentences.  
+- **Solution Approach:** Explain why this new problem cannot be solved by either of the original solutions alone and requires a fusion of both domains to be addressed effectively.  
+
+#### B. Ensure Organic Integration and Logical Interdependence  
+- **Organic Integration:** Seamlessly weave concepts from both domains into a unified algorithm. For example, use the data processing method of algorithm A to determine the structure or parameters of data structure B.  
+- **Logical Interdependence:** The output from one domain's logic must serve as a critical parameter or decision-making basis that fundamentally influences the execution flow of the other domain's logic.  
+
+#### C. Annotate All Fusion Points  
+In the code, you must use comments starting with `# FUSION POINT:` to explicitly identify where and how the two domains interact and merge. For each fusion point, briefly explain the design rationale. Explain why this fusion is logically correct and how Domain 1's output meaningfully influences Domain 2. Include a brief comment explaining what would happen if a key input parameter from Domain 1 were changed, demonstrating the cause-and-effect relationship.  
+
+#### D. Prohibit Mechanical Combination  
+Strictly avoid the following anti-patterns:  
+- **Simple Concatenation:** Placing code from both solutions in the same file without meaningful interaction.  
+- **Independent Functions:** Creating a program where the functions from each domain run independently without influencing each other.  
+- **Parallel Demonstration:** A program that simply showcases two unrelated features in one execution.  
+
+---
+
+2. Code Generation and Testing Requirements  
+You must structure your response into three distinct Python code blocks. The code must be self-contained, directly executable, and adhere to the highest standards of clarity and correctness.  
+
+### A. Block 1: The Core Fused Python Functions  
+This block contains the primary logic of your integrated solution.  
+
+**Dependencies:** Use Python Standard Library only (e.g., `sys`, `typing`, `collections`, `itertools`, `functools`, `math`). No third-party or external libraries are permitted.  
+**Executability:** The code must be self-contained. Simulate any necessary external data or dependencies by using hard-coded values or simplified helper functions.  
+**Evolution of Complexity:** The new, fused problem should be more challenging than the individual source problems. Evolve and expand upon the original logic to create a more sophisticated solution.  
+**Code Style:** Follow PEP 8 conventions, including clear naming conventions, proper indentation, and type hints where appropriate. Add comments to explain complex logic, especially at the FUSION POINTS.  
+
+---
+
+### B. Block 2: The demo_testing() Function  
+This function serves as a simple demonstration of your solution.  
+
+- **Content:** Provide no more than 2 test cases.  
+- **Purpose:** The goal is to clearly demonstrate the basic input-output format and the core functionality of the fused logic. Avoid edge or boundary cases here.  
+- **Implementation:** Hard-code all input values directly inside this function. It should take no parameters. When executed, it must print the inputs and the corresponding outputs to the console.  
+
+---
+
+### C. Block 3: The full_testing() Function  
+This function must comprehensively validate the robustness and correctness of your solution.  
+
+- **Content:** Provide at least 7 distinct test cases.  
+- **Purpose:** Thoroughly test the functionality, including:  
+  - Basic Cases: (e.g., the cases from demo_testing()).  
+  - Boundary Cases: (e.g., minimum/maximum values, empty inputs, single-element collections).  
+  - Edge Cases: Cases that test the robustness of the fusion points and conditional logic.  
+- **Implementation:** Similar to demo_testing, hard-code all inputs and print the inputs and outputs for each test case. The structure and printing format of this function should be identical to demo_testing(), differing only in the number and variety of test cases.  
+
+---
+
+3. Strict Sandbox and Performance Constraints  
+Your code will be executed in a restricted environment. It must comply with the following rules:  
+- **No External Access:** Absolutely no file I/O, network requests, system calls, or interaction with the operating system is allowed.  
+- **No Exception Handling:** Do not use try or except blocks. The code should be written to prevent runtime errors through logical checks (e.g., checking for empty lists before access).  
+- **No Randomness:** Do not use any random number generators (e.g., `random.random()`). The output must be deterministic and identical for every execution.  
+- **Direct Execution:** The entire code, including one of the testing functions and a `if __name__ == "__main__":` entry point, must be directly executable with `python main.py`.  
+- **Performance:** The algorithm must have a polynomial time complexity. Test cases must complete execution within a few seconds. Avoid logic that could result in exponential complexity or infinite loops.  
+
+---
+
+4. Mandatory Self-Validation Checklist  
+Before finalizing your solution, you must perform this critical internal check. If any of these points fail, you must revise your code until they pass:  
+
+- **Import Check:** Have I imported all necessary standard modules (e.g., `from typing import List, Dict`)? Are all imports at the top of the file?  
+- **Logic Verification:** Does the algorithm produce meaningfully different outputs for different inputs? Is the core logic sound?  
+- **Differential Input Test:** Crucially, if I change a key input related to Domain 1, does the behavior of the logic from Domain 2 change in a predictable and logical way? (e.g., "If the input string changes, does the resulting graph traversal path also change as a direct consequence?").  
+- **Causality Verification:** Does each `# FUSION POINT:` comment describe a clear cause-and-effect relationship, not just data being passed? Is the influence non-trivial?  
+- **Functional Dependency:** Does the core logic of Domain 2 actually depend on and utilize the output from Domain 1's logic to function correctly, or could it run without it? The dependency must be essential.  
+
+Broken, non-executing, or non-compliant code is unacceptable.  
+
+---
+
+5. Output Structure  
+Provide your complete answer in the following three-block format.  
+
+---
+
+### Block 1: Combined Python Functions  
+```python
+# New Integrated Problem: [Describe the new problem in 1-2 sentences here. For example: "This code uses text analysis to find keywords in a document, which then act as required waypoints in a graph traversal problem."]  
+# Solution Approach: [Explain how the domains are fused. For example: "The text processing logic (Domain 1) identifies key nodes from an input string. These nodes are then passed to a graph search algorithm (Domain 2) to find the shortest path that must visit all identified key nodes in a specific order."]
+
+import sys
+from typing import List, Dict, Set, Tuple, Optional
+from collections import defaultdict, deque
+import itertools
+import math
+
+# --- Your Combined Solution Functions ---
+
+# Example Fused Function
+# FUSION POINT: The 'required_nodes' list, generated by the text analysis logic,
+# is a critical input for this graph traversal function. It transforms a generic
+# pathfinding problem into a constrained one. Changing the input text would
+# generate a different set of required_nodes, leading to a completely different
+# path calculation. This demonstrates a direct and meaningful dependency.
+def find_constrained_path(graph: Dict, required_nodes: List) -> List:
+    # ... core fused logic ...
+    pass
+```
+
+---
+
+### Block 2: Demo Testing Function
+
+```python
+import sys
+from typing import List, Dict, Set, Tuple, Optional
+from collections import defaultdict, deque
+import itertools
+import math
+
+# [PASTE ALL COMBINED PYTHON FUNCTIONS FROM BLOCK 1 HERE]
+
+def demo_testing():
+    print("--- Demo Test 1 ---")
+    # Hard-coded inputs for the first test case
+    # Print inputs
+    print(f"Input: ...")
+    # Call the main fused function
+    result = your_main_function(...)
+    # Print the result in a clear format
+    print(f"Output: {result}")
+    print()
+
+    print("--- Demo Test 2 ---")
+    # Hard-coded inputs for the second test case
+    # Print inputs
+    print(f"Input: ...")
+    # Call the main fused function
+    result = your_main_function(...)
+    # Print the result
+    print(f"Output: {result}")
+
+if __name__ == "__main__":
+    demo_testing()
+```
+
+---
+
+### Block 3: Full Testing Function
+
+```python
+import sys
+from typing import List, Dict, Set, Tuple, Optional
+from collections import defaultdict, deque
+import itertools
+import math
+
+# [PASTE ALL COMBINED PYTHON FUNCTIONS FROM BLOCK 1 HERE]
+
+def full_testing():
+    # A collection of at least 7 test cases
+    test_cases = [
+        # Basic cases
+        ("Test1", 10),
+        ("Test2", 20),
+        # Boundary cases
+        ("", 0),
+        ("Single", 1),
+        # Edge cases demonstrating fusion logic
+        ("Complex case with specific keywords", 100),
+        ("Another edge case", -1),
+        ("Max value test", 99999)
+        # ... add more to reach at least 7
+    ]
+
+    test_num = 1
+    for test_input in test_cases:
+        print(f"--- Test Case {test_num} ---")
+        # Hard-coded inputs from the test case
+        print(f"Input: {test_input}")
+        # Call the main fused function
+        result = your_main_function(test_input[0], test_input[1])
+        print(f"Output: {result}")
+        print()
+        test_num += 1
+
+if __name__ == "__main__":
+    full_testing()
+```
+
+```
+```

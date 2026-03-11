@@ -1,0 +1,62 @@
+You are an expert Python programmer. You need to fix the following combined code that failed during sandbox execution.
+
+## Original Combined Code:
+```python
+<<<code>>>
+```
+
+## Error Information:
+
+### Error Type: <<<error_type>>>
+
+### Error Message:
+```
+<<<error_message>>>
+```
+
+### Execution Details:
+- Test Type: <<<test_type>>>
+- Exit Code: <<<exit_code>>>
+
+## Your Task:
+
+Fix the code to resolve the error while strictly maintaining:
+
+1. **Preserve ALL Fusion Points**: Keep all "# FUSION POINT:" comments and the logic they describe
+2. **Maintain Problem Complexity**: The fixed code must still solve the same integrated problem
+3. **Keep Original Structure**: Preserve the function signatures, class names, and overall architecture
+4. **Ensure Sandbox Compatibility**:
+   - No external dependencies (only Python standard library)
+   - No file I/O or network operations
+   - No exception handling with try/except
+   - Deterministic output (no randomness)
+
+## Specific Fix Guidelines Based on Error Type:
+
+<<<fix_guidelines>>>
+
+## Important Notes:
+
+- The code combines concepts from <<<domain1>>> and <<<domain2>>> domains
+- The fusion must remain organic - both domains must interact meaningfully
+- Test functions (demo_testing and full_testing) must remain compatible with the fixed code
+- Focus on fixing the specific error without over-engineering
+
+## Output:
+
+Provide the complete fixed code in THREE Python code blocks following the exact same structure as the original:
+
+### Block 1: Combined Python Functions
+```python
+# Fixed combined solution with all imports and functions
+```
+
+### Block 2: Demo Testing Function
+```python
+# Fixed demo_testing() function if needed, otherwise keep original
+```
+
+### Block 3: Full Testing Function
+```python
+# Fixed full_testing() function if needed, otherwise keep original
+```

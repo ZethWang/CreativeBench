@@ -1,0 +1,92 @@
+You are an expert code analyst helping to build a benchmark for evaluating AI models' exploratory creativity in code generation.
+
+## Your Mission
+We are creating a Self-Evolving Code Generation Benchmark that measures models' ability to explore novel and creative solutions. To achieve this, we need to progressively constrain models to force them to discover alternative approaches, thereby testing their exploratory creativity - the ability to find diverse, unconventional solutions when common approaches are blocked.
+
+## Your Task
+Analyze the provided code solution and identify the KEY TECHNIQUES or SOLUTION PATTERNS that are essential to how this particular solution works. These will become constraints in our benchmark, forcing models to explore alternative approaches.
+
+You MUST return a single JSON object wrapped in a fenced block using:
+
+```json
+{ ... }
+```
+
+Do not include any prose before or after the JSON block. The JSON MUST be valid and parseable.
+
+## Code to Analyze
+```<<<LANGUAGE>>>
+<<<CODE>>>
+```
+
+## Problem Context
+<<<PROBLEM_DESCRIPTION>>>
+
+## Instructions
+1. **Identify Core Techniques**: List the fundamental approaches, algorithms, data structures, or programming patterns used in this solution.
+
+2. **Rank by Criticality**: Order these techniques from most fundamental to most specific. Removing fundamental techniques will force more creative alternatives.
+
+3. **Suggest Progressive Constraints (6–7 levels)**: Propose a sequence of 6–7 constraints that gradually increase in difficulty and remain jointly solvable. Each later level adds a NEW constraint in addition to all previous ones (cumulative). Levels must be numbered 1..N without gaps.
+
+## Output Format
+Please provide your analysis in the following JSON format:
+
+```json
+{
+  "core_techniques": [
+    {
+      "technique": "Name of the technique",
+      "description": "Brief description of how it's used",
+      "code_indicators": ["pattern1", "pattern2"],
+      "criticality": "high|medium|low"
+    }
+  ],
+  "progressive_constraints": [
+    {
+      "level": 1,
+      "constraint": "Specific constraint description (concise, enforceable)",
+      "blocked_technique": "What technique this blocks",
+      "expected_impact": "How this forces creative exploration",
+      "verification_hint": "How to verify (regex/keywords/complexity/structural cues)"
+    }
+    /* 6–7 total items, strictly level=1..N */
+  ]
+}
+```
+
+### Example Analysis
+
+For a sorting problem using **quicksort**:
+
+**Core Technique: Recursive Divide-and-Conquer**
+  Quicksort relies on recursion to divide arrays into subproblems around a pivot and sort them recursively.
+
+**Level 1 Constraint: No Built-in Sort Functions**
+  Prevents easy shortcuts (`sorted`, `.sort`), requiring a custom approach but still allowing familiar patterns.
+
+**Level 2 Constraint: No Recursion**
+  Forces the use of an iterative method (e.g., explicit stack), pushing beyond the default recursive pattern.
+
+**Level 3 Constraint: No Explicit Loops**
+  Without `for` or `while`, the model must adopt functional tools (e.g., `map`, `reduce`), exploring less conventional solutions.
+
+## Constraint Design Principles
+1. **Individually Reasonable**: Each constraint blocks one key technique but leaves viable alternatives.
+2. **Cumulative & Solvable**: Level k must include all constraints from levels < k. Ensure the combined set at levels 6–7 is still solvable for the given problem.
+3. **No Trivial Workarounds**: Avoid constraints that can be bypassed with brute force, hardcoded tables, or I/O tricks.
+4. **Promote Alternative Paradigms**: Encourage different algorithmic patterns (e.g., two-pointers, heaps, prefix sums, monotonic stacks, union-find, DP, bit tricks) or different programming styles (iterative vs recursive, in-place vs extra space, streaming vs materialization).
+5. **Verifiable**: Provide clear, automatable verification hints (keywords/regex/complexity target) rather than vague style suggestions.
+
+## Recommended Constraint Archetypes (pick appropriately)
+- Ban core library shortcuts (e.g., sorting APIs, Counter, regex, built-in min/max/sum/abs).
+- Restrict access patterns (no direct indexing/slicing/comprehensions; streaming/iterator-only).
+- Complexity goals (time O(n) instead of O(n log n); memory O(1) extra).
+- Enumeration restrictions (no nested pair enumeration/Cartesian products; no recursion or no loops — choose one, not both).
+- Data-structure shifts (avoid arrays-only; require or forbid stacks/heaps/queues/sets/maps as fits the problem).
+- Paradigm shifts (no recursion; must use iterative with explicit stack; or the converse, depending on baseline).
+- Side-effect/I/O restrictions (pure function; no globals; no printing; deterministic order without sorting).
+
+Return ONLY the JSON code block.
+
+Remember: The goal is to encourage exploration of fundamentally different solution strategies through well-designed, individually reasonable constraints that combine to create meaningful challenges.

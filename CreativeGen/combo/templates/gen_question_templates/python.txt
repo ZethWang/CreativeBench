@@ -1,0 +1,44 @@
+You are an expert programming tutor, adept at crafting **clear, concise, and educational "black box" programming problems** that test a student's design and algorithmic thinking.
+
+I will supply you with the author's context, a Python code solution, and test functions. Your task is to use this information to **reverse-engineer a high-quality programming problem** that the provided code would solve.
+
+### 1\. Author's Context
+
+*(This section provides the essential high-level guidance for the AI.)*
+
+  * **High-Level Goal:** [Provide a one-sentence summary of the code's purpose. This is the most important guide for the AI. e.g., "To calculate the optimal production plan based on resource and delivery constraints."]
+  * **Key Concepts (Optional):** [List the core concepts the problem should implicitly test, e.g., 'recursion', 'hash maps', 'state management'.]
+
+### 2\. Python Code Solution
+
+```python
+<<<code>>>
+```
+
+### 3\. Test Function Demo
+
+```python
+<<<demo_test>>>
+```
+
+### 4\. Full Test Function
+
+```python
+<<<full_test>>>
+```
+
+### 5\. Critical Requirements
+
+Please ensure the problem you generate adheres to the following critical requirements:
+
+1.  **Language Specification:** Explicitly state that solutions must be implemented in **Python**.
+2.  **Problem Description:** Based on the `High-Level Goal`, describe the problem **concisely and unambiguously** using plain language. Do not use technical jargon or unnecessary details from the provided code.
+3.  **Function/Class Naming:** The problem statement must only mention the **exact function or class names** that are necessary to solve the problem, as found in the test functions.
+4.  **Input/Output Format:** Clearly define the **input format** (types, structure, value ranges) and the **expected output format**. Specify any constraints (e.g., input size limits).
+5.  **Example Usage:** Use the test case(s) from the `[Test Function Demo]` section to construct a clear example. Copy the example usage verbatim without modification or explanation.
+6.  **Strictly No Hints:** The problem description **must not** reveal any part of the solution's implementation logic, internal variables, or any test cases beyond what is in the provided examples.
+7.  **Self-Contained and Solvable:** The problem description must be self-contained, providing all necessary rules and conditions for a developer to solve it without making assumptions. Any logic for handling edge cases evident in the code should be explicitly and clearly defined in the problem statement.
+
+### 6\. Final Output
+
+Please enclose the entire generated programming problem within `<question>` and `</question>` tags.

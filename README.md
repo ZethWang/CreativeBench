@@ -1,0 +1,165 @@
+# CreativeBench: Benchmarking and Enhancing Machine Creativity via Self-Evolving Challenges
+
+CreativeBench is an open-source benchmark and data synthesis framework for **creative code generation**, featuring two complementary pipelines:
+
+- **Combo (reverse-engineering)**: Combines solutions from different domains to synthesize new problems and tests.
+- **Explore (self-play)**: Evolves problems through progressive constraints to elicit novel solutions.
+
+This repository provides the pipelines, templates, and artifacts needed to reproduce the dataset generation process.
+
+---
+
+## Contents
+
+- [Introduction](#introduction)
+- [Project Structure](#project-structure)
+- [Data Resources](#data-resources)
+- [Combo Pipeline (Reverse-Engineering)](#combo-pipeline-reverse-engineering)
+- [Explore Pipeline (Self-Play)](#explore-pipeline-self-play)
+- [Evaluation](#evaluation)
+- [Reproducibility Checklist](#reproducibility-checklist)
+- [License](#license)
+
+---
+
+## Introduction
+
+**CreativeBench** targets *creative code generation*: the ability to produce correct, novel solutions under new constraints or from cross-domain recombination. We provide:
+
+- **Combo**: cross-domain code recombination + sandbox feedback, yielding novel tasks with verified tests.
+- **Explore**: progressive constraint self-play, encouraging diverse solution strategies beyond the baseline.
+
+The framework is designed for reproducibility and extensibility, and can be adapted to other languages or models.
+
+---
+
+## Project Structure
+
+```
+.
+├── CreativeGen/
+│   ├── combo/                 # reverse-engineering pipeline
+│   └── explore/               # self-play pipeline
+├── datasets-subset/           # sampled datasets only
+├── evaluation/                # evaluation utilities
+└── inference/                 # inference utilities
+```
+
+---
+
+## Data Resources
+
+We provide sampled datasets in `datasets-subset/`.
+
+**Field definitions** (each JSONL line):
+
+- `question`: problem statement
+- `canonical_solution`: reference solution
+- `demo_test_func`: public tests
+- `full_test_func`: comprehensive tests
+- `language`: programming language
+- `difficulty`: difficulty label
+
+---
+
+## Combo Pipeline (Reverse-Engineering)
+
+### Overview
+
+1. Select domain pairs and build combo prompts
+2. Generate combined solutions
+3. Validate in sandbox
+4. Fix failed solutions using feedback
+5. Generate tests and questions
+6. Format final dataset
+
+### Run
+
+```bash
+bash CreativeGen/combo/run_combo_pipeline.sh \
+  <num_combos> <max_fix_attempts> <input_jsonl>
+```
+
+**Example**:
+
+```bash
+bash CreativeGen/combo/run_combo_pipeline.sh 5 3 /path/to/input.jsonl
+```
+
+### Outputs
+
+A run folder is created under:
+
+```
+CreativeGen/combo/runs/run_YYYYMMDD_HHMMSS/
+```
+
+Key artifacts:
+
+- `combo_final_success.jsonl`
+- `test_func.jsonl`
+- `combo_final_dataset.jsonl`
+- `combo_final_formatted.jsonl`
+
+---
+
+## Explore Pipeline (Self-Play)
+
+### Overview
+
+1. Filter source dataset to Python-only (or target language)
+2. Identify key techniques in baseline solutions
+3. Add progressive constraints
+4. Generate constrained solutions
+5. Verify compliance and run sandbox validation
+6. Compute creativity scores
+7. Convert results to inference-ready flat dataset
+
+### Run
+
+```bash
+bash CreativeGen/explore/run_explore_pipeline.sh \
+  /path/to/autocodebench.jsonl
+```
+
+### Outputs
+
+```
+CreativeGen/explore/runs/run_YYYYMMDD_HHMMSS/
+  creativity_evolution_results.json
+  creativity_analysis.png
+CreativeGen/explore/data/converted/*_infer_*.jsonl
+```
+
+---
+
+## Evaluation
+
+If you have the sandbox server running, you can validate solutions with:
+
+```bash
+python3 CreativeGen/combo/src/call_sandbox.py \
+  --input_file path/to/data.jsonl \
+  --output path/to/output.jsonl \
+  --solution_key canonical_solution
+```
+
+Sandbox usage details will be documented here.
+
+---
+
+## Reproducibility Checklist
+
+- [ ] Set `MODEL_API_KEY` (and optional `MODEL_BASE_URL`)
+- [ ] Prepare input JSONL files with `question/canonical_solution/test_func` fields
+- [ ] Start sandbox service if validation is needed
+- [ ] Run `combo` or `explore` pipeline
+- [ ] Verify outputs and artifact counts
+
+---
+
+---
+
+## License
+
+This project is released under the **[License Placeholder]**.

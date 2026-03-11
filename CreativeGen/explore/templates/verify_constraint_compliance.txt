@@ -1,0 +1,45 @@
+You are a code compliance verifier for a creativity benchmark system.
+
+## Context
+We are evaluating AI models' exploratory creativity by constraining their code generation. Models must find alternative solutions when common approaches are blocked, demonstrating their ability to explore the solution space creatively.
+
+## Your Task
+Verify whether the provided code complies with the given constraint. This is critical for ensuring the model truly explored alternative approaches rather than using the blocked technique.
+
+## Code to Verify
+```<<<LANGUAGE>>>
+<<<CODE>>>
+```
+
+## Constraint to Check
+**Constraint**: <<<CONSTRAINT>>>
+**Blocked Technique**: <<<BLOCKED_TECHNIQUE>>>
+**Verification Hint**: <<<VERIFICATION_HINT>>>
+
+## Verification Process
+1. **Identify Violation Patterns**: Look for any code patterns that use the blocked technique.
+
+2. **Check for Workarounds**: Ensure the solution doesn't simply rename or wrap the blocked technique.
+
+## Output Format
+Provide your verification result in the following format:
+
+```json
+{
+  "compliant": true/false,
+  "reasoning": "Detailed explanation of your decision",
+  "violations_found": [
+    {
+      "line_or_section": "Where the violation occurs",
+      "specific_code": "The problematic code snippet"
+    }
+  ],
+  "alternative_technique_used": "If compliant, what alternative approach was used",
+}
+```
+
+## Example
+Constraint: "No loops (for/while)"
+- Non-compliant: Using recursion that mimics a loop
+- Compliant: Using map/reduce/filter operations
+- Creative: Using mathematical formulas to avoid iteration entirely
