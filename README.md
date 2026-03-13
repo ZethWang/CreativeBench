@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/creativebench_logo.png" alt="CreativeBench logo" width="96" />
+  <img src="assets/creativebench_logo.png" alt="CreativeBench logo" width="180" />
 </p>
 
 # CreativeBench: Benchmarking and Enhancing Machine Creativity via Self-Evolving Challenges
