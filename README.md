@@ -57,7 +57,7 @@ This repository provides the pipelines, templates, and artifacts needed to repro
 - [Combo Pipeline (Reverse-Engineering)](#combo-pipeline-reverse-engineering)
 - [Explore Pipeline (Self-Play)](#explore-pipeline-self-play)
 - [Evaluation](#evaluation)
-- [Reproducibility Checklist](#reproducibility-checklist)
+- [Todo](#todo)
 - [License](#license)
 
 ---
@@ -188,15 +188,14 @@ Sandbox usage details will be documented here.
 
 ---
 
-## Reproducibility Checklist
+## Todo
 
-- [ ] Set `MODEL_API_KEY` (and optional `MODEL_BASE_URL`)
-- [ ] Prepare input JSONL files with `question/canonical_solution/test_func` fields
-- [ ] Start sandbox service if validation is needed
-- [ ] Run `combo` or `explore` pipeline
-- [ ] Verify outputs and artifact counts
+The sandbox implementation is being cleaned up, and `MultiLanguageSandbox/` is not included in the current public release yet.
 
----
+- [ ] Upload and document `MultiLanguageSandbox/` for code execution and verification.
+- [ ] Release setup instructions for the sandbox service used by the combo and explore pipelines.
+- [ ] Add end-to-end verification examples for benchmark generation and inference evaluation.
+- [ ] Expand sandbox support and documentation for additional programming languages.
 
 ---
 
