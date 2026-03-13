@@ -17,7 +17,27 @@
   </a>
 </p>
 
-# CreativeBench: Benchmarking and Enhancing Machine Creativity via Self-Evolving Challenges
+<h1 align="center">CreativeBench</h1>
+
+<p align="center">
+  <strong>Benchmarking and Enhancing Machine Creativity via Self-Evolving Challenges</strong>
+</p>
+
+<p align="center">
+  A benchmark and data synthesis framework for creative code generation across combinatorial and exploratory settings.
+</p>
+
+<p align="center">
+  <a href="https://zethwang.github.io/creativebench.github.io/">Homepage</a> •
+  <a href="https://arxiv.org/abs/2603.11863">Paper</a> •
+  <a href="https://huggingface.co/datasets/Zethive/CreativeBench">Dataset</a>
+</p>
+
+## News
+
+- [2026.03.13] CreativeBench paper is available on [arXiv](https://arxiv.org/abs/2603.11863).
+- [2026.03.13] CreativeBench dataset is available on [Hugging Face](https://huggingface.co/datasets/Zethive/CreativeBench).
+- [2026.03.13] The project [homepage](https://zethwang.github.io/creativebench.github.io/) is now live.
 
 CreativeBench is an open-source benchmark and data synthesis framework for **creative code generation**, featuring two complementary pipelines:
 
@@ -30,6 +50,7 @@ This repository provides the pipelines, templates, and artifacts needed to repro
 
 ## Contents
 
+- [News](#news)
 - [Introduction](#introduction)
 - [Project Structure](#project-structure)
 - [Data Resources](#data-resources)
