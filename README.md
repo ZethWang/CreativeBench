@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/creativebench_logo.png" alt="CreativeBench logo" width="96" />
+</p>
+
 # CreativeBench: Benchmarking and Enhancing Machine Creativity via Self-Evolving Challenges
 
 CreativeBench is an open-source benchmark and data synthesis framework for **creative code generation**, featuring two complementary pipelines:
