@@ -2,6 +2,21 @@
   <img src="assets/creativebench_logo.png" alt="CreativeBench logo" width="180" />
 </p>
 
+<p align="center">
+  <a href="https://www.python.org/">
+    <img src="https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+  </a>
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-22c55e?style=for-the-badge" alt="MIT License" />
+  </a>
+  <a href="https://huggingface.co/datasets/Zethive/CreativeBench">
+    <img src="https://img.shields.io/badge/Dataset-CreativeBench-f6c344?style=for-the-badge&logo=huggingface&logoColor=white" alt="Dataset" />
+  </a>
+  <a href="https://arxiv.org/abs/2603.11863">
+    <img src="https://img.shields.io/badge/arXiv-2603.11863-b31b1b?style=for-the-badge&logo=arxiv&logoColor=white" alt="arXiv" />
+  </a>
+</p>
+
 # CreativeBench: Benchmarking and Enhancing Machine Creativity via Self-Evolving Challenges
 
 CreativeBench is an open-source benchmark and data synthesis framework for **creative code generation**, featuring two complementary pipelines:
