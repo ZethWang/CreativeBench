@@ -166,7 +166,7 @@ Sandbox usage details will be documented here.
 
 ## License
 
-This project is released under the **[License Placeholder]**.
+This project is released under the **MIT License**. See [LICENSE](LICENSE) for details.
 
 ---
 
