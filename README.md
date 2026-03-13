@@ -163,3 +163,21 @@ Sandbox usage details will be documented here.
 ## License
 
 This project is released under the **[License Placeholder]**.
+
+---
+
+## Citation
+
+If you use CreativeBench in your work, please cite:
+
+```bibtex
+@misc{wang2026creativebenchbenchmarkingenhancingmachine,
+  title={CreativeBench: Benchmarking and Enhancing Machine Creativity via Self-Evolving Challenges},
+  author={Zi-Han Wang and Lam Nguyen and Zhengyang Zhao and Mengyue Yang and Chengwei Qin and Yujiu Yang and Linyi Yang},
+  year={2026},
+  eprint={2603.11863},
+  archivePrefix={arXiv},
+  primaryClass={cs.AI},
+  url={https://arxiv.org/abs/2603.11863},
+}
+```
