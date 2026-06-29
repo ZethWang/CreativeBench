@@ -1,0 +1,66 @@
+# 简化版多语言沙箱，基于Ubuntu 22.04
+FROM ubuntu:jammy
+
+# 设置时区和locale
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    wget curl git unzip zip sudo vim build-essential locales \
+    ca-certificates tzdata apt-transport-https software-properties-common \
+    python3 python3-pip nodejs npm default-jdk gcc g++ \
+    php php-xml r-base erlang elixir ghc emacs sbcl racket ruby \
+    gfortran fpc iptables dnsutils bc jq && \
+    ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+    locale-gen en_US.UTF-8 && \
+    useradd -m sandbox
+
+# 安装Python依赖
+RUN pip3 install gunicorn flask flask_cors beautifulsoup4 requests psutil PyYAML \
+    statsmodels Pillow scikit-learn lxml numpy scipy opencv-python pyarrow pandas pytest
+
+# 安装Node.js依赖  
+RUN npm install -g ts-node typescript tsx coffeescript
+
+# 安装Go
+RUN wget https://go.dev/dl/go1.21.0.linux-amd64.tar.gz && \
+    tar -C /usr/local -xzf go1.21.0.linux-amd64.tar.gz && \
+    rm go1.21.0.linux-amd64.tar.gz
+
+# 安装Rust (简化版)
+USER sandbox
+WORKDIR /home/sandbox
+RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
+USER root
+
+# 设置环境变量
+ENV PATH="/usr/local/go/bin:/home/sandbox/.cargo/bin:${PATH}" \
+    PYTHONUNBUFFERED=1
+
+# 切换到iptables-legacy
+RUN update-alternatives --set iptables /usr/sbin/iptables-legacy && \
+    update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
+
+# 设置工作目录
+WORKDIR /data
+RUN mkdir -p /data/logs
+
+# 复制应用文件
+COPY src/sandbox.py /data
+COPY src/log.py /data
+COPY src/gunicorn_config.py /data
+COPY src/executor.py /data
+COPY src/code_splicer.py /data
+COPY src/clickhouse_reporter.py /data
+COPY src/code.py /data
+COPY src/safe_subprocess.py /data
+COPY src/exec_outcome.py /data
+COPY src/env.py /data
+COPY src/code_config.yaml /data/code_config.yaml
+COPY docker-entrypoint.sh /data
+RUN chmod +x /data/docker-entrypoint.sh
+
+# 设置权限
+RUN chmod -R 755 /home/sandbox && chmod 755 /root && \
+    chown -R root:root /home/sandbox
+
+# 启动入口
+ENTRYPOINT ["./docker-entrypoint.sh"]

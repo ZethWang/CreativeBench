@@ -1,0 +1,21 @@
+2025-11-14 04:29:13,524 MainThread log.py:<module>:61 INFO - 日志系统初始化完成
+2025-11-14 04:29:13,593 MainThread code.py:load_config:26 INFO - 成功加载配置文件: /mnt/DataFlow/zzy/wzh/AutoCodeBenchmark/MultiLanguageSandbox/src/code_config.yaml
+2025-11-14 04:29:13,638 MainThread code.py:load_config:26 INFO - 成功加载配置文件: /mnt/DataFlow/zzy/wzh/AutoCodeBenchmark/MultiLanguageSandbox/src/code_config.yaml
+ * Serving Flask app 'sandbox'
+ * Debug mode: off
+Traceback (most recent call last):
+  File "/mnt/DataFlow/zzy/wzh/AutoCodeBenchmark/MultiLanguageSandbox/src/sandbox.py", line 261, in <module>
+    app.run(host='0.0.0.0', port=8080, debug=False)
+  File "/opt/conda/lib/python3.10/site-packages/flask/app.py", line 662, in run
+    run_simple(t.cast(str, host), port, self, **options)
+  File "/opt/conda/lib/python3.10/site-packages/werkzeug/serving.py", line 1093, in run_simple
+    srv = make_server(
+  File "/opt/conda/lib/python3.10/site-packages/werkzeug/serving.py", line 930, in make_server
+    return ThreadedWSGIServer(
+  File "/opt/conda/lib/python3.10/site-packages/werkzeug/serving.py", line 750, in __init__
+    super().__init__(
+  File "/opt/conda/lib/python3.10/socketserver.py", line 448, in __init__
+    self.socket = socket.socket(self.address_family,
+  File "/opt/conda/lib/python3.10/socket.py", line 232, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+PermissionError: [Errno 1] Operation not permitted
